@@ -28,75 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            label1 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            ContainerTextBox = new TextBox();
+            VolumeLabel = new Label();
+            SubstanceTextBox = new TextBox();
+            SubstanceLabel = new Label();
+            AmountLabel = new Label();
             CalculateButton = new Button();
             ClearButton = new Button();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
-            numericUpDown1 = new NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            CointainerComboBox = new ComboBox();
+            SubstanceComboBox = new ComboBox();
+            AmountCounter = new NumericUpDown();
+            SolutionVolumeLabel = new Label();
+            SolutionVolumeTextBox = new TextBox();
+            SubstanceVolumeLabel = new Label();
+            SubstanceVolumeTextBox = new TextBox();
+            ContainerManualRBut = new RadioButton();
+            CommonContainerRBut = new RadioButton();
+            SubstanceManualRBut = new RadioButton();
+            CommonSolutionRBut = new RadioButton();
+            ContainerPanel = new Panel();
+            SubstancePanel = new Panel();
+            ((System.ComponentModel.ISupportInitialize)AmountCounter).BeginInit();
+            ContainerPanel.SuspendLayout();
+            SubstancePanel.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // ContainerTextBox
             // 
-            textBox1.Location = new Point(32, 65);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(158, 23);
-            textBox1.TabIndex = 0;
-            textBox1.Visible = false;
+            ContainerTextBox.Location = new Point(22, 48);
+            ContainerTextBox.Name = "ContainerTextBox";
+            ContainerTextBox.Size = new Size(158, 23);
+            ContainerTextBox.TabIndex = 0;
+            ContainerTextBox.Visible = false;
             // 
-            // label1
+            // VolumeLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label1.Location = new Point(63, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(127, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Container Volume (ml)";
+            VolumeLabel.AutoSize = true;
+            VolumeLabel.BackColor = Color.Transparent;
+            VolumeLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 238);
+            VolumeLabel.Location = new Point(13, 9);
+            VolumeLabel.Name = "VolumeLabel";
+            VolumeLabel.Size = new Size(214, 25);
+            VolumeLabel.TabIndex = 1;
+            VolumeLabel.Text = "Container Volume (ml)";
             // 
-            // textBox2
+            // SubstanceTextBox
             // 
-            textBox2.Location = new Point(32, 159);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 2;
-            textBox2.Visible = false;
+            SubstanceTextBox.Location = new Point(20, 40);
+            SubstanceTextBox.Name = "SubstanceTextBox";
+            SubstanceTextBox.Size = new Size(160, 23);
+            SubstanceTextBox.TabIndex = 2;
+            SubstanceTextBox.Visible = false;
             // 
-            // label2
+            // SubstanceLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label2.Location = new Point(63, 103);
-            label2.Name = "label2";
-            label2.Size = new Size(129, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Substance Amount (%)";
+            SubstanceLabel.AutoSize = true;
+            SubstanceLabel.BackColor = Color.Transparent;
+            SubstanceLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 238);
+            SubstanceLabel.Location = new Point(16, 131);
+            SubstanceLabel.Name = "SubstanceLabel";
+            SubstanceLabel.Size = new Size(211, 25);
+            SubstanceLabel.TabIndex = 3;
+            SubstanceLabel.Text = "Substance Amount (%)";
             // 
-            // label3
+            // AmountLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label3.Location = new Point(63, 197);
-            label3.Name = "label3";
-            label3.Size = new Size(106, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Container Amount";
+            AmountLabel.AutoSize = true;
+            AmountLabel.BackColor = Color.Transparent;
+            AmountLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 238);
+            AmountLabel.Location = new Point(32, 234);
+            AmountLabel.Name = "AmountLabel";
+            AmountLabel.Size = new Size(174, 25);
+            AmountLabel.TabIndex = 5;
+            AmountLabel.Text = "Container Amount";
             // 
             // CalculateButton
             // 
             CalculateButton.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            CalculateButton.Location = new Point(12, 328);
+            CalculateButton.Location = new Point(16, 328);
             CalculateButton.Name = "CalculateButton";
-            CalculateButton.Size = new Size(178, 142);
+            CalculateButton.Size = new Size(230, 142);
             CalculateButton.TabIndex = 6;
             CalculateButton.Text = "Calculate";
             CalculateButton.UseVisualStyleBackColor = true;
@@ -105,132 +117,223 @@
             // ClearButton
             // 
             ClearButton.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            ClearButton.Location = new Point(220, 328);
+            ClearButton.Location = new Point(310, 328);
             ClearButton.Name = "ClearButton";
-            ClearButton.Size = new Size(178, 142);
+            ClearButton.Size = new Size(230, 142);
             ClearButton.TabIndex = 7;
             ClearButton.Text = "Clear";
             ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
             // 
-            // comboBox1
+            // CointainerComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(32, 65);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(158, 23);
-            comboBox1.TabIndex = 8;
-            comboBox1.Visible = false;
+            CointainerComboBox.FormattingEnabled = true;
+            CointainerComboBox.Location = new Point(22, 48);
+            CointainerComboBox.Name = "CointainerComboBox";
+            CointainerComboBox.Size = new Size(158, 23);
+            CointainerComboBox.TabIndex = 8;
+            CointainerComboBox.Visible = false;
             // 
-            // comboBox2
+            // SubstanceComboBox
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(32, 159);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(160, 23);
-            comboBox2.TabIndex = 9;
-            comboBox2.Visible = false;
+            SubstanceComboBox.FormattingEnabled = true;
+            SubstanceComboBox.Location = new Point(20, 41);
+            SubstanceComboBox.Name = "SubstanceComboBox";
+            SubstanceComboBox.Size = new Size(160, 23);
+            SubstanceComboBox.TabIndex = 9;
+            SubstanceComboBox.Visible = false;
             // 
-            // radioButton1
+            // AmountCounter
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.CheckAlign = ContentAlignment.BottomCenter;
-            radioButton1.Location = new Point(9, 27);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(123, 32);
-            radioButton1.TabIndex = 10;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Common Containers";
-            radioButton1.TextAlign = ContentAlignment.TopCenter;
-            radioButton1.UseVisualStyleBackColor = true;
+            AmountCounter.Location = new Point(32, 276);
+            AmountCounter.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
+            AmountCounter.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            AmountCounter.Name = "AmountCounter";
+            AmountCounter.Size = new Size(120, 23);
+            AmountCounter.TabIndex = 14;
+            AmountCounter.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // radioButton2
+            // SolutionVolumeLabel
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.CheckAlign = ContentAlignment.BottomCenter;
-            radioButton2.Location = new Point(127, 27);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(84, 32);
-            radioButton2.TabIndex = 11;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Manual Input";
-            radioButton2.TextAlign = ContentAlignment.TopCenter;
-            radioButton2.UseVisualStyleBackColor = true;
+            SolutionVolumeLabel.AutoSize = true;
+            SolutionVolumeLabel.BackColor = Color.Transparent;
+            SolutionVolumeLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 238);
+            SolutionVolumeLabel.Location = new Point(289, 9);
+            SolutionVolumeLabel.Name = "SolutionVolumeLabel";
+            SolutionVolumeLabel.Size = new Size(251, 25);
+            SolutionVolumeLabel.TabIndex = 15;
+            SolutionVolumeLabel.Text = "Total Solution Volume (ml)";
             // 
-            // radioButton3
+            // SolutionVolumeTextBox
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.CheckAlign = ContentAlignment.BottomCenter;
-            radioButton3.Location = new Point(12, 121);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(115, 32);
-            radioButton3.TabIndex = 12;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Common Solutions";
-            radioButton3.TextAlign = ContentAlignment.TopCenter;
-            radioButton3.UseVisualStyleBackColor = true;
+            SolutionVolumeTextBox.Enabled = false;
+            SolutionVolumeTextBox.Location = new Point(358, 41);
+            SolutionVolumeTextBox.Multiline = true;
+            SolutionVolumeTextBox.Name = "SolutionVolumeTextBox";
+            SolutionVolumeTextBox.ReadOnly = true;
+            SolutionVolumeTextBox.Size = new Size(136, 48);
+            SolutionVolumeTextBox.TabIndex = 16;
             // 
-            // radioButton4
+            // SubstanceVolumeLabel
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.CheckAlign = ContentAlignment.BottomCenter;
-            radioButton4.Location = new Point(127, 121);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(84, 32);
-            radioButton4.TabIndex = 13;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Manual Input";
-            radioButton4.TextAlign = ContentAlignment.TopCenter;
-            radioButton4.UseVisualStyleBackColor = true;
+            SubstanceVolumeLabel.AutoSize = true;
+            SubstanceVolumeLabel.BackColor = Color.Transparent;
+            SubstanceVolumeLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 238);
+            SubstanceVolumeLabel.Location = new Point(279, 157);
+            SubstanceVolumeLabel.Name = "SubstanceVolumeLabel";
+            SubstanceVolumeLabel.Size = new Size(266, 25);
+            SubstanceVolumeLabel.TabIndex = 17;
+            SubstanceVolumeLabel.Text = "Total Substance Volume (ml)";
             // 
-            // numericUpDown1
+            // SubstanceVolumeTextBox
             // 
-            numericUpDown1.Location = new Point(33, 227);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 14;
+            SubstanceVolumeTextBox.Enabled = false;
+            SubstanceVolumeTextBox.Location = new Point(358, 197);
+            SubstanceVolumeTextBox.Multiline = true;
+            SubstanceVolumeTextBox.Name = "SubstanceVolumeTextBox";
+            SubstanceVolumeTextBox.ReadOnly = true;
+            SubstanceVolumeTextBox.Size = new Size(136, 48);
+            SubstanceVolumeTextBox.TabIndex = 18;
+            SubstanceVolumeTextBox.TextChanged += SubstanceVolumeTextBox_TextChanged;
+            // 
+            // ContainerManualRBut
+            // 
+            ContainerManualRBut.AutoSize = true;
+            ContainerManualRBut.BackColor = Color.Transparent;
+            ContainerManualRBut.CheckAlign = ContentAlignment.BottomCenter;
+            ContainerManualRBut.Location = new Point(131, 10);
+            ContainerManualRBut.Name = "ContainerManualRBut";
+            ContainerManualRBut.Size = new Size(84, 32);
+            ContainerManualRBut.TabIndex = 11;
+            ContainerManualRBut.TabStop = true;
+            ContainerManualRBut.Text = "Manual Input";
+            ContainerManualRBut.TextAlign = ContentAlignment.TopCenter;
+            ContainerManualRBut.UseVisualStyleBackColor = false;
+            ContainerManualRBut.CheckedChanged += RadioButton_CheckedChanged;
+            // 
+            // CommonContainerRBut
+            // 
+            CommonContainerRBut.AutoSize = true;
+            CommonContainerRBut.BackColor = Color.Transparent;
+            CommonContainerRBut.CheckAlign = ContentAlignment.BottomCenter;
+            CommonContainerRBut.Location = new Point(3, 9);
+            CommonContainerRBut.Name = "CommonContainerRBut";
+            CommonContainerRBut.Size = new Size(123, 32);
+            CommonContainerRBut.TabIndex = 10;
+            CommonContainerRBut.TabStop = true;
+            CommonContainerRBut.Text = "Common Containers";
+            CommonContainerRBut.TextAlign = ContentAlignment.TopCenter;
+            CommonContainerRBut.UseVisualStyleBackColor = false;
+            CommonContainerRBut.CheckedChanged += RadioButton_CheckedChanged;
+            // 
+            // SubstanceManualRBut
+            // 
+            SubstanceManualRBut.AutoSize = true;
+            SubstanceManualRBut.BackColor = Color.Transparent;
+            SubstanceManualRBut.CheckAlign = ContentAlignment.BottomCenter;
+            SubstanceManualRBut.Location = new Point(122, 3);
+            SubstanceManualRBut.Name = "SubstanceManualRBut";
+            SubstanceManualRBut.Size = new Size(84, 32);
+            SubstanceManualRBut.TabIndex = 13;
+            SubstanceManualRBut.TabStop = true;
+            SubstanceManualRBut.Text = "Manual Input";
+            SubstanceManualRBut.TextAlign = ContentAlignment.TopCenter;
+            SubstanceManualRBut.UseVisualStyleBackColor = false;
+            SubstanceManualRBut.CheckedChanged += RadioButton_CheckedChanged;
+            // 
+            // CommonSolutionRBut
+            // 
+            CommonSolutionRBut.AutoSize = true;
+            CommonSolutionRBut.BackColor = Color.Transparent;
+            CommonSolutionRBut.CheckAlign = ContentAlignment.BottomCenter;
+            CommonSolutionRBut.Location = new Point(3, 3);
+            CommonSolutionRBut.Name = "CommonSolutionRBut";
+            CommonSolutionRBut.Size = new Size(115, 32);
+            CommonSolutionRBut.TabIndex = 12;
+            CommonSolutionRBut.TabStop = true;
+            CommonSolutionRBut.Text = "Common Solutions";
+            CommonSolutionRBut.TextAlign = ContentAlignment.TopCenter;
+            CommonSolutionRBut.UseVisualStyleBackColor = false;
+            CommonSolutionRBut.CheckedChanged += RadioButton_CheckedChanged;
+            // 
+            // ContainerPanel
+            // 
+            ContainerPanel.BackColor = Color.Transparent;
+            ContainerPanel.Controls.Add(CommonContainerRBut);
+            ContainerPanel.Controls.Add(ContainerManualRBut);
+            ContainerPanel.Controls.Add(CointainerComboBox);
+            ContainerPanel.Controls.Add(ContainerTextBox);
+            ContainerPanel.Location = new Point(9, 29);
+            ContainerPanel.Name = "ContainerPanel";
+            ContainerPanel.Size = new Size(218, 87);
+            ContainerPanel.TabIndex = 19;
+            // 
+            // SubstancePanel
+            // 
+            SubstancePanel.BackColor = Color.Transparent;
+            SubstancePanel.Controls.Add(CommonSolutionRBut);
+            SubstancePanel.Controls.Add(SubstanceManualRBut);
+            SubstancePanel.Controls.Add(SubstanceComboBox);
+            SubstancePanel.Controls.Add(SubstanceTextBox);
+            SubstancePanel.Location = new Point(16, 157);
+            SubstancePanel.Name = "SubstancePanel";
+            SubstancePanel.Size = new Size(215, 74);
+            SubstancePanel.TabIndex = 20;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(410, 498);
-            Controls.Add(numericUpDown1);
-            Controls.Add(radioButton4);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(555, 498);
+            Controls.Add(SubstanceVolumeTextBox);
+            Controls.Add(SubstanceVolumeLabel);
+            Controls.Add(SolutionVolumeTextBox);
+            Controls.Add(SolutionVolumeLabel);
+            Controls.Add(AmountCounter);
             Controls.Add(ClearButton);
             Controls.Add(CalculateButton);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(AmountLabel);
+            Controls.Add(SubstanceLabel);
+            Controls.Add(VolumeLabel);
+            Controls.Add(ContainerPanel);
+            Controls.Add(SubstancePanel);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Solution Calculator";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AmountCounter).EndInit();
+            ContainerPanel.ResumeLayout(false);
+            ContainerPanel.PerformLayout();
+            SubstancePanel.ResumeLayout(false);
+            SubstancePanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private Label label1;
-        private TextBox textBox2;
-        private Label label2;
-        private Label label3;
+        private TextBox ContainerTextBox;
+        private Label VolumeLabel;
+        private TextBox SubstanceTextBox;
+        private Label SubstanceLabel;
+        private Label AmountLabel;
         private Button CalculateButton;
         private Button ClearButton;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private NumericUpDown numericUpDown1;
+        private ComboBox CointainerComboBox;
+        private ComboBox SubstanceComboBox;
+        private NumericUpDown AmountCounter;
+        private Label SolutionVolumeLabel;
+        private TextBox SolutionVolumeTextBox;
+        private Label SubstanceVolumeLabel;
+        private TextBox SubstanceVolumeTextBox;
+        private RadioButton ContainerManualRBut;
+        private RadioButton CommonContainerRBut;
+        private RadioButton SubstanceManualRBut;
+        private RadioButton CommonSolutionRBut;
+        private Panel ContainerPanel;
+        private Panel SubstancePanel;
     }
 }
