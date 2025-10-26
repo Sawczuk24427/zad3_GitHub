@@ -1,4 +1,5 @@
 using System.Drawing.Imaging;
+using zad3_GitHub.Calculation;
 
 namespace zad3_GitHub
 {
@@ -31,8 +32,8 @@ namespace zad3_GitHub
 
             };
 
-            ContainerComboBox.Items.AddRange(containerData.Select(cd => cd.Item1).ToArray());
-            SubstanceComboBox.Items.AddRange(SubstanceData.Select(sd => sd.Item1).ToArray());
+            ContainerComboBox.Items.AddRange(containerData.Select(item => new ComboBoxItem(item.Item1, item.Item2)).ToArray());
+            SubstanceComboBox.Items.AddRange(SubstanceData.Select(item => new ComboBoxItem(item.Item1, item.Item2)).ToArray());
         }
 
         private void InitializeManagedPanels()
@@ -84,16 +85,15 @@ namespace zad3_GitHub
         private string GetValueFromPanel(Panel panel)
         {
             var visibleTextBox = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Visible);
-            if(visibleTextBox != null)
+            if (visibleTextBox != null)
             {
                 return visibleTextBox.Text;
             }
             var visibleComboBox = panel.Controls.OfType<ComboBox>().FirstOrDefault(cb => cb.Visible);
-            if(visibleComboBox != null && visibleComboBox.SelectedItem is ComboBoxItem selectedItem)
+            if (visibleComboBox != null && visibleComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
-                decimal value = selectedItem.Value;
-                value *= 100;
-                return value.ToString();
+                
+                return selectedItem.Value.ToString();
             }
             return string.Empty;
 
@@ -165,21 +165,23 @@ namespace zad3_GitHub
 
         }
 
-        private void CalculateButton_Click(object sender, EventArgs e) { 
-        //{
-        //    string volumeText = GetValueFromPanel(ContainerPanel);
-        //    string concentrationText = GetValueFromPanel(SubstancePanel);
-        //    string countText = AmountCounter.Value.ToString();
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+            {
+                string volumeText = GetValueFromPanel(ContainerPanel);
+                string concentrationText = GetValueFromPanel(SubstancePanel);
+                string countText = AmountCounter.Value.ToString();
 
-        //    if(TryParseAndCalculate(volumeText, concentrationText, countText, out CalculationResult? result, out string? errorMessage))
-        //    {
-        //        SolutionVolumeTextBox.Text = result.TotalVolume.ToString("F2") + " ml";
-        //        SubstanceVolumeTextBox.Text = result.PureSubstanceVolume.ToString("F2") + " ml";
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show(errorMessage, "Invalid Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
+                if (PercentageCalculator.TryParseAndCalculate(volumeText, concentrationText, countText, out CalculationResult? result, out string? errorMessage))
+                {
+                    SolutionVolumeTextBox.Text = result.TotalVolume.ToString("F2") + " ml";
+                    SubstanceVolumeTextBox.Text = result.PureSubstanceVolume.ToString("F2") + " ml";
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage, "Invalid Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
