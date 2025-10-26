@@ -10,6 +10,29 @@ namespace zad3_GitHub
             InitializeComponent();
             this.DoubleBuffered = true;
             InitializeManagedPanels();
+            InitializeComboBoxes();
+        }
+
+        private void InitializeComboBoxes()
+        {
+            var containerData = new[]
+            {
+               ("Glass (500ml)", 500m),
+               ("Shot Glass (50ml)", 50m),
+               ("Bottle (1000ml)", 1000m),
+               ("Cup (250)", 250m)
+           };
+
+            var SubstanceData = new[]
+            {
+                ("Vodka(40%)", 0.4m),
+                ("Isopropyl Alcohol(70%)", 0.7m),
+                ("Vinegar (10%)", 0.1m),
+
+            };
+
+            ContainerComboBox.Items.AddRange(containerData.Select(cd => cd.Item1).ToArray());
+            SubstanceComboBox.Items.AddRange(SubstanceData.Select(sd => sd.Item1).ToArray());
         }
 
         private void InitializeManagedPanels()
@@ -21,14 +44,19 @@ namespace zad3_GitHub
             };
         }
 
-        private void HidePanelBoxes()
+        private void BoxVisiblity(Panel panel, bool isVisible)
         {
-            foreach (var panel in _panels)
+            foreach (var tb in panel.Controls.OfType<TextBox>())
             {
-                BoxVisiblity(panel, false);
+                tb.Visible = isVisible;
+                tb.Clear();
+            }
+            foreach (var cb in panel.Controls.OfType<ComboBox>())
+            {
+                cb.Visible = isVisible;
+                cb.SelectedIndex = -1;
             }
         }
-
         private void ClearRadioButtons(Control.ControlCollection controls)
         {
             foreach (Control control in controls)
@@ -45,18 +73,33 @@ namespace zad3_GitHub
                 }
             }
         }
-
-        private void BoxVisiblity(Panel panel, bool isVisible)
+        private void HidePanelBoxes()
         {
-            foreach (var tb in panel.Controls.OfType<TextBox>())
+            foreach (var panel in _panels)
             {
-                tb.Visible = isVisible;
-            }
-            foreach (var cb in panel.Controls.OfType<ComboBox>())
-            {
-                cb.Visible = isVisible;
+                BoxVisiblity(panel, false);
             }
         }
+
+        private string GetValueFromPanel(Panel panel)
+        {
+            var visibleTextBox = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Visible);
+            if(visibleTextBox != null)
+            {
+                return visibleTextBox.Text;
+            }
+            var visibleComboBox = panel.Controls.OfType<ComboBox>().FirstOrDefault(cb => cb.Visible);
+            if(visibleComboBox != null && visibleComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                decimal value = selectedItem.Value;
+                value *= 100;
+                return value.ToString();
+            }
+            return string.Empty;
+
+        }
+
+
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -89,15 +132,9 @@ namespace zad3_GitHub
                     imageAttributes);
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void SubstanceVolumeTextBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -125,6 +162,24 @@ namespace zad3_GitHub
             AmountCounter.Value = 1;
             SolutionVolumeTextBox.Clear();
             SubstanceVolumeTextBox.Clear();
+
+        }
+
+        private void CalculateButton_Click(object sender, EventArgs e) { 
+        //{
+        //    string volumeText = GetValueFromPanel(ContainerPanel);
+        //    string concentrationText = GetValueFromPanel(SubstancePanel);
+        //    string countText = AmountCounter.Value.ToString();
+
+        //    if(TryParseAndCalculate(volumeText, concentrationText, countText, out CalculationResult? result, out string? errorMessage))
+        //    {
+        //        SolutionVolumeTextBox.Text = result.TotalVolume.ToString("F2") + " ml";
+        //        SubstanceVolumeTextBox.Text = result.PureSubstanceVolume.ToString("F2") + " ml";
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show(errorMessage, "Invalid Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
         }
     }
 }

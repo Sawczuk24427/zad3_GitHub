@@ -36,7 +36,7 @@
             AmountLabel = new Label();
             CalculateButton = new Button();
             ClearButton = new Button();
-            CointainerComboBox = new ComboBox();
+            ContainerComboBox = new ComboBox();
             SubstanceComboBox = new ComboBox();
             AmountCounter = new NumericUpDown();
             SolutionVolumeLabel = new Label();
@@ -106,33 +106,33 @@
             // CalculateButton
             // 
             CalculateButton.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            CalculateButton.Location = new Point(16, 328);
+            CalculateButton.Location = new Point(13, 328);
             CalculateButton.Name = "CalculateButton";
             CalculateButton.Size = new Size(230, 142);
             CalculateButton.TabIndex = 6;
             CalculateButton.Text = "Calculate";
             CalculateButton.UseVisualStyleBackColor = true;
-            CalculateButton.Click += button1_Click;
+            CalculateButton.Click += CalculateButton_Click;
             // 
             // ClearButton
             // 
             ClearButton.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            ClearButton.Location = new Point(310, 328);
+            ClearButton.Location = new Point(308, 328);
             ClearButton.Name = "ClearButton";
-            ClearButton.Size = new Size(230, 142);
+            ClearButton.Size = new Size(232, 142);
             ClearButton.TabIndex = 7;
             ClearButton.Text = "Clear";
             ClearButton.UseVisualStyleBackColor = true;
             ClearButton.Click += ClearButton_Click;
             // 
-            // CointainerComboBox
+            // ContainerComboBox
             // 
-            CointainerComboBox.FormattingEnabled = true;
-            CointainerComboBox.Location = new Point(22, 48);
-            CointainerComboBox.Name = "CointainerComboBox";
-            CointainerComboBox.Size = new Size(158, 23);
-            CointainerComboBox.TabIndex = 8;
-            CointainerComboBox.Visible = false;
+            ContainerComboBox.FormattingEnabled = true;
+            ContainerComboBox.Location = new Point(22, 48);
+            ContainerComboBox.Name = "ContainerComboBox";
+            ContainerComboBox.Size = new Size(165, 23);
+            ContainerComboBox.TabIndex = 8;
+            ContainerComboBox.Visible = false;
             // 
             // SubstanceComboBox
             // 
@@ -194,7 +194,6 @@
             SubstanceVolumeTextBox.ReadOnly = true;
             SubstanceVolumeTextBox.Size = new Size(136, 48);
             SubstanceVolumeTextBox.TabIndex = 18;
-            SubstanceVolumeTextBox.TextChanged += SubstanceVolumeTextBox_TextChanged;
             // 
             // ContainerManualRBut
             // 
@@ -261,7 +260,7 @@
             ContainerPanel.BackColor = Color.Transparent;
             ContainerPanel.Controls.Add(CommonContainerRBut);
             ContainerPanel.Controls.Add(ContainerManualRBut);
-            ContainerPanel.Controls.Add(CointainerComboBox);
+            ContainerPanel.Controls.Add(ContainerComboBox);
             ContainerPanel.Controls.Add(ContainerTextBox);
             ContainerPanel.Location = new Point(9, 29);
             ContainerPanel.Name = "ContainerPanel";
@@ -322,7 +321,7 @@
         private Label AmountLabel;
         private Button CalculateButton;
         private Button ClearButton;
-        private ComboBox CointainerComboBox;
+        private ComboBox ContainerComboBox;
         private ComboBox SubstanceComboBox;
         private NumericUpDown AmountCounter;
         private Label SolutionVolumeLabel;
