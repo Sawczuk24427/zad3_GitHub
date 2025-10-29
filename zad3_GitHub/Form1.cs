@@ -26,9 +26,9 @@ namespace zad3_GitHub
 
             var SubstanceData = new[]
             {
-                ("Vodka(40%)", 0.4m),
-                ("Isopropyl Alcohol(70%)", 0.7m),
-                ("Vinegar (10%)", 0.1m),
+                ("Vodka(40%)", 40m),
+                ("Isopropyl Alcohol(70%)", 70m),
+                ("Vinegar (10%)", 10m),
 
             };
 
